@@ -11,7 +11,8 @@ frm.addEventListener("submit", (e) => {
 
     // valida preenchimento (palavra não deve possuir espaço em branco no meio)
     if (palavra.includes(" ")) {
-        alert(" Informe uma palavra válida (sem espaços")
+        alert(" Informe uma palavra válida (sem espaços)")
+        frm.inPalavra.focus();
         return
     }
 
@@ -20,7 +21,7 @@ frm.addEventListener("submit", (e) => {
     if (localStorage.getItem("jogoPalavra")) {
         localStorage.setItem("jogoPalavra",
             localStorage.getItem("jogoPalavra") + ";" + palavra);
-            localStorage.setItem("jogoDica", localStorage.getItem("jogoDica") + ";" + dica);
+        localStorage.setItem("jogoDica", localStorage.getItem("jogoDica") + ";" + dica);
     } else {
         // senão, é a primeira inclusão: grava apenas a palavra / dica
         localStorage.setItem("jogoPalavra", palavra);
@@ -35,4 +36,4 @@ frm.addEventListener("submit", (e) => {
     frm.reset(); // limpa o form
     frm.inPalavra.focus(); // Joga o foco em inPalavra
 
-})
+});
